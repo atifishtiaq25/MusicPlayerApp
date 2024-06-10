@@ -20,6 +20,13 @@
     margin: 10px 0px;
 }
 
+.truncate {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
 .track-image-container {
     width: 100%;
     height: 320px;    

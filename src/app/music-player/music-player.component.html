@@ -1,0 +1,36 @@
+<div class="main-div">
+  <div class="music-player-container">
+    <div class="track-artist truncate">
+      <label>{{this.currentTrack.file.artist}}</label>
+    </div>
+    <div class="track-image-container">
+      <img src={{this.currentTrack.file.image}} onError="this.onerror=null; this.src='https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.jpg'">
+    </div>
+    <div class="track-name truncate">
+      <label>{{this.currentTrack.file.title}}</label>
+    </div>
+    <div class="progress-bar-container">
+      <mat-progress-bar [value]="state.progress" mode="determinate"></mat-progress-bar>
+    </div>
+    <div class="button-container">
+      <button mat-icon-button [disabled]="!state.playing" (click)="pause()" class="action-button">
+        <mat-icon>pause</mat-icon>
+      </button>
+      <button mat-icon-button [disabled]="state.paused" (click)="stop()" class="action-button">
+        <mat-icon>stop</mat-icon>
+      </button>
+      <button mat-icon-button (click)="previous()" class="action-button">
+        <mat-icon>fast_rewind</mat-icon>
+      </button>
+      <button mat-icon-button *ngIf="!state?.playing" (click)="play()" class="action-button">
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+      <button mat-icon-button *ngIf="state?.playing" (click)="pause()" class="action-button">
+        <mat-icon>pause</mat-icon>
+      </button>
+      <button mat-icon-button (click)="next()" class="action-button">
+        <mat-icon>fast_forward</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
